@@ -55,6 +55,6 @@ namespace app\core;
 
    public function renderView($view)
    {
-     include_once __DIR__."/../views/$view.php";
+     include_once Application::$ROOT_DIR."/views/$view.php";
    }
  }
