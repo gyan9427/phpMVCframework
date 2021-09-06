@@ -46,9 +46,15 @@ namespace app\core;
         exit;
       }
 
-      echo call_user_func($callback);
+      if (is_string($callback)){
+        return $this->renderView($callback);
+      }
 
-           
-     
+      echo call_user_func($callback);
+   }
+
+   public function renderView($view)
+   {
+     include_once __DIR__."/../views/$view.php";
    }
  }
