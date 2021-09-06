@@ -29,13 +29,26 @@ namespace app\core;
        $this->routes['get'][$path] = $callback ;
    }
 
+   public function post($path,$callback)
+   {
+     $this->routes['post'][$path]= $callback;
+   }
+
    public  function resolve()
    {
       $path =$this->request->getPath();
 
-      echo '<pre>';
-      var_dump($path);
-      echo '</pre>';
-      exit;
+      $method = $this->request->getMethod();
+      $callback = $this->routes[$method][$path] ?? false;
+
+      if ($callback === false){
+        echo "not found";
+        exit;
+      }
+
+      echo call_user_func($callback);
+
+           
+     
    }
  }
