@@ -42,6 +42,7 @@ namespace app\core;
       $callback = $this->routes[$method][$path] ?? false;
 
       if ($callback === false){
+        Application::$app->response->setStatusCode(404);
         echo "not found";
         exit;
       }

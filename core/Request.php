@@ -3,7 +3,7 @@
 namespace app\core;
 
 /**
- * Class Application
+ * Class Request
  * 
  * @author gyan
  * @package app\core;
