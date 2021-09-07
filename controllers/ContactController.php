@@ -17,7 +17,7 @@ class ContactController
         $params = [
             'name'=>'gyan'
         ];
-        return Application::$app->router->renderView('home');
+        return Application::$app->router->renderView('home',$params);
     }
 
    public function contact(){
