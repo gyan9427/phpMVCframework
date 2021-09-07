@@ -43,8 +43,8 @@ namespace app\core;
 
       if ($callback === false){
         Application::$app->response->setStatusCode(404);
-        echo "not found";
-        exit;
+        return $this->renderView("_404");
+        
       }
 
       if (is_string($callback)){
