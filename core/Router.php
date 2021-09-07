@@ -22,6 +22,7 @@ namespace app\core;
     public function __construct(\app\core\Request $request)
     {
         $this->request = $request;
+        
     }
 
    public function get($path, $callback)
@@ -32,6 +33,14 @@ namespace app\core;
    public function post($path,$callback)
    {
      $this->routes['post'][$path]= $callback;
+   }
+
+   public function showAll(){
+     $variable = $this->routes;
+     foreach ($variable as $key => $value) {
+       echo "</br>";
+       echo $value;
+     }
    }
 
    public  function resolve()
@@ -50,8 +59,8 @@ namespace app\core;
       if (is_string($callback)){
         return $this->renderView($callback);
       }
-
-      echo call_user_func($callback);
+      
+      return call_user_func($callback);
    }
 
    public function renderView($view)
